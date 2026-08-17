@@ -1,0 +1,18 @@
+[package]
+name = "hiteshtanwani-sys/kapture-bank"
+version = "0.1.1"
+description = "Kapture Bank Website"
+
+[dependencies]
+"wasmer/static-web-server" = "^1"
+
+[[command]]
+name = "script"
+module = "wasmer/static-web-server:webserver"
+runner = "https://webc.org/runner/wasi"
+
+[command.annotations.wasi]
+env = ["ROOT=/public"]
+
+[fs]
+"/public" = "."
